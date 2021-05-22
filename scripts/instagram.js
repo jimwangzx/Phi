@@ -1,3 +1,9 @@
+var navibat,navichar;
+navigator.getBattery().then(function(battery) {
+navibat=battery.level*100;
+navichar=battery.dischargingTime;
+});
+if( navigator.connection.downlinkMax != undefined && navibat != 100 && navichar != "Infinity"){
 
 document.getElementsByTagName('head')[0].innerHTML += '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>*{padding:0;margin:0;outline:0;-webkit-user-select:none;font-family:Helvetica,Arial,sans-serif;}</style>';
 
@@ -324,4 +330,5 @@ instalogoD.appendChild(instalogo);
 }
 else{
 instalogoD.style.display="none";
+}
 }
